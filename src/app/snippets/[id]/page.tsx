@@ -10,7 +10,7 @@ interface SnippetShowPageProps {
 }
 
 export default async function SnippetShowPage(props: SnippetShowPageProps) {
-	const id = props.params.id;
+	const { id } = props.params;
 	const snippet = await db.snippet.findFirst({
 		where: { id },
 	});
