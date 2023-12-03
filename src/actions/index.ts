@@ -31,8 +31,15 @@ export async function createSnippet(
 ) {
 	try {
 		// Validate user's input
-		const title = formData.get("title") as string;
-		const code = formData.get("code") as string;
+		const title = formData.get("title");
+		const code = formData.get("code");
+
+		if (typeof title !== "string" || typeof code !== "string") {
+			return {
+				message: "Invalid entry",
+				source: "code",
+			};
+		}
 
 		if (title.length < 3) {
 			return {
