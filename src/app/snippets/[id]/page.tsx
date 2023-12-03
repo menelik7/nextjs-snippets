@@ -49,7 +49,7 @@ export async function generateStaticParams() {
 
 	return snippets.map((snippet) => {
 		return {
-			id: JSON.stringify(snippet.id),
+			id: snippet.id,
 		};
 	});
 }
